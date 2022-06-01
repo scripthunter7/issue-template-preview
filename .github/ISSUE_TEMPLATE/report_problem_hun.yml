@@ -1,0 +1,125 @@
+# Based on https://github.com/AdguardTeam/AdguardFilters/blob/master/.github/ISSUE_TEMPLATE/bug_report.yml
+
+name: Probléma bejelentése (Magyar nyelven)
+description: Megjelenő hirdetések / esztétikai hibák / zavaró elemek / reklámblokkoló kikapcsolására kérő üzenetek / blokkolás miatt hibásan működő weboldalak / kártékony webhelyek bejelentése.
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Előfeltételek
+      description: |
+        Kérjük, hogy a felesleges hibajelentések elkerülése érdekében először vedd végig az alábbi pontokat!
+      options:
+        - label: Az általad használt böngésző támogatott (tehát nem Internet Explorer) és a legújabb verzióját használod.
+          required: true
+        - label: Az operációs rendszeredbe / böngésződbe telepítve van reklámblokkoló és annak a legújabb verzióját használod.
+          required: true
+        - label: A reklámblokkolód szűrői között engedélyezve van a hufilter és a hufilter legújabb verzióját használod.
+          required: true
+        - label: Ha a reklámblokkolás miatt hibásan működik egy weboldal, akkor az a hufilter kikapcsolásával megoldódik, vagyis meggyőződtél róla, hogy a problémát biztosan a hufilter okozza, nem pedig egy másik szűrő.
+          required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Milyen böngészőt használsz?
+      multiple: true
+      options:
+        - Google Chrome
+        - Mozilla Firefox
+        - Microsoft Edge
+        - Opera
+        - Brave
+        - Vivaldi
+        - Safari
+        - Samsung Internet
+        - Egyéb (írd le megjegyzésben)
+    validations:
+      required: true
+  - type: dropdown
+    id: adblocker
+    attributes:
+      label: Milyen reklámblokkolót használsz?
+      description: |
+        :warning: Több reklámblokkoló együttes használata is okozhat hibát! [[forrás](https://twitter.com/gorhill/status/1033706103782170625)]
+      multiple: true
+      options:
+        - Adblock Plus
+        - AdBlock
+        - AdGuard (böngészőbővítmény)
+        - Adguard (különálló program)
+        - uBlock Origin
+        - AdBlocker Ultimate (böngészőbővítmény)
+        - AdBlocker Ultimate (különálló program)
+        - Ghostery
+        - Egyéb (írd le megjegyzésben)
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Milyen jellegű problémát tapasztaltál?
+      multiple: true
+      options:
+        - A weboldalon hirdetések jelennek meg
+        - Egy blokkolt hirdetés után látszanak a maradványai, pl. "hirdetés" feliratok vagy nagyobb térközök
+        - A weboldal érzékelte a reklámblokkolót és ezért a kikapcsolására kér
+        - A weboldalon zavaró elemek jelennek meg, pl. felugró ablakok, cookie értesítések, beúszó ajánlók, stb.
+        - A weboldal nem működik megfelelően a hufilter miatt
+        - Olyasmi van blokkolva a weboldalon, amit nem kellene blokkolni
+        - Elemzőrendszer vagy nyomkövető
+        - Rosszindulatú webhely
+        - Egyéb (írd le megjegyzésben)
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Milyen eszközökön tapasztaltad a problémát?
+      multiple: true
+      options:
+        - Mobil
+        - Tablet
+        - Asztali gép
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Melyik weboldalon tapasztalod a problémát?
+      description: Add meg az érintett weboldal(ak) címét az alábbi mezőben.
+      placeholder: pl. https://weboldal-linkje.hu/
+    validations:
+      required: true
+  - type: textarea
+    id: comment
+    attributes:
+      label: Szöveges megjegyzés és képek hozzáadása
+      description: |
+        1. Összegezd a problémát röviden, érthetően!
+        2. Ha szükségesnek érzed, a szöveges leíráson túl képernyőképeket is feltölthetsz. Ehhez a következőket kell tenned:
+           - Másold be a szöveges mezőbe az alábbi kódot:
+              ```html
+              <details><summary>Mellékelt képernyőkép:</summary>
+              
+              <!-- Jelöld ki ezt a sort, majd a CTRL+V lenyomásával töltsd fel a képet a helyére! -->
+              
+              </details>
+              ```
+           - Jelöld ki a középső sort (a `<--` és `-->` részeket is beleértve), majd pedig CTRL+V-vel másold a kijelölt szöveg helyére a képet. Fontos, hogy alatta és felette a két üres sor megmaradjon, különben a kép nem fog látszani!
+
+        :warning: Ha a képernyőképeken személyes adatok, magánjellegű információk találhatók, akkor azokat feltöltés előtt takard ki, mivel a képek nyilvánosak lesznek, így bárki láthatja azt, ami rajtuk szerepel!
+      placeholder: "Ebben a szövegmezőben összegezd a problémát"
+    validations:
+      required: true
+  - type: textarea
+    id: rules
+    attributes:
+      label: Javaslat szűrőszabályokra (kihagyható)
+      description: |
+        Ha készítettél saját szűrőszabályokat a probléma megoldása érdekében, azokat légyszíves másold be az alábbi szövegmezőbe! Ha nem érted, hogy mire való ez a pont, vagy nem készítettél szűrőszabályt, akkor egyszerűen csak hagyd üresen az alábbi szöveges mezőt.
+      placeholder: |
+        valami.hu##.egyik-elem
+        valami.hu##.masik-elem
+      render: ''
+    validations:
+      required: false
