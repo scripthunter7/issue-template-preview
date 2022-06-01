@@ -1,0 +1,25 @@
+name: Egyszerű issue nyitása (magyar nyelvű)
+description: Egyszerű GitHub issue nyitása egyéb témakörben
+
+body:
+  - type: textarea
+    id: comment
+    attributes:
+      label: Szöveges megjegyzés és képek hozzáadása
+      description: |
+        1. Összegezd a a problémát / kérdést!
+        2. Ha szükségesnek érzed, a szöveges leíráson túl képernyőképeket is feltölthetsz. Ehhez a következőket kell tenned:
+           - Másold be a szöveges mezőbe az alábbi kódot:
+              ```html
+              <details><summary>Mellékelt képernyőkép:</summary>
+              
+              <!-- Jelöld ki ezt a sort, majd a CTRL+V lenyomásával töltsd fel a képet! -->
+              
+              </details>
+              ```
+           - Jelöld ki a középső sort (a `<--` és `-->` részeket is beleértve), majd pedig CTRL+V-vel másold a kijelölt szöveg helyére a képet. Fontos, hogy alatta és felette a két üres sor megmaradjon, különben a kép nem fog látszani!
+        :warning: Ha a képernyőképeken személyes adatok, magánjellegű információk találhatók, akkor azokat feltöltés előtt takard ki, mivel a képek nyilvánosak lesznek, így bárki láthatja azt, ami rajtuk szerepel!
+      value: |
+          <!-- Itt összegezd röviden a problémát / kérdést, ezt a sort pedig nyugodtan törölheted -->
+    validations:
+      required: true
